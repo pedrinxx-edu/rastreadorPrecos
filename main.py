@@ -1,19 +1,19 @@
-import csv
+from difflib import get_close_matches
 
 usarSistema = "sim"
-get_close_matches = []
 opcoes_validas = [
    "1", "um", "preço", "preco", "precos", "preços",
    "2", "dois", "titulo", "titulos", "título", "títulos",
-   "3", "tres", "três", "exportar", "exportação", "exportacâo", "exportaçao", "catalogo", "catálogo", "catalogos", "catálogos"
+   "3", "tres", "três", "exportar", "exportação", "exportacâo", "exportaçao", "catalogo", "catálogo", "catalogos", "catálogos",
+   "4", "quatro", "encerrar", "sair", "fechar", "exit", "finalizar", "terminar"
 ]
 
 nome = input("\nOlá, qual o seu nome? ")
 
 while usarSistema == "sim":
     print(f"\nOlá {nome}! Esse é um sistema de consulta do site Books to Scrape")
-    print("\n1 - Procurar preço \n2 - Procurar titulos \n3 - Exportar Catálogo \n4 - Encerrar")
-    opcao = input("Qual das opções acima você deseja executar? ").strip() .lower()
+    print("\n1 - Filtrar por preço \n2 - Procurar titulos \n3 - Exportar Catálogo \n4 - Encerrar")
+    opcao = input("\nQual das opções acima você deseja executar? ").strip() .lower()
 
     if opcao not in opcoes_validas:
             parecido = get_close_matches(opcao, opcoes_validas, n=1, cutoff=0.6)
@@ -21,4 +21,6 @@ while usarSistema == "sim":
                 resposta = input(f"Você quis dizer {parecido[0]}? ")
                 if resposta in ("sim", "s", "ss"):
                     opcao = parecido[0]
-    
+
+    print(f"\nOlá {nome}!")
+    usarSistema = input("\nDeseja continuar utilizando o sistema (sim/não)? ").strip().lower()
