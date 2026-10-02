@@ -1,4 +1,5 @@
 from difflib import get_close_matches
+from funcoes import procurar_preco, procurar_titulo
 
 usarSistema = "sim"
 opcoes_validas = [
@@ -22,5 +23,14 @@ while usarSistema == "sim":
                 if resposta in ("sim", "s", "ss"):
                     opcao = parecido[0]
 
-    print(f"\nOlá {nome}!")
-    usarSistema = input("\nDeseja continuar utilizando o sistema (sim/não)? ").strip().lower()
+    if opcao in ("1", "um", "preço", "preco", "precos", "preços"):
+        procurar_preco()
+    elif opcao in ("2", "dois", "titulo", "titulos", "título", "títulos"):
+        procurar_titulo()
+    elif opcao in ("3", "tres", "três", "exportar", "exportação", "exportacâo", "exportaçao", "catalogo", "catálogo", "catalogos", "catálogos"):
+        print("Módulo em construção")
+    elif opcao in ("4", "quatro", "encerrar", "sair", "fechar", "exit", "finalizar", "terminar"):
+        print(f"Até logo {nome}! Obrigado por usar nosso sistema!")
+        exit()
+    else:
+        print("Opção Indisponível! Tente novamente ou encerre o sistema")
