@@ -25,7 +25,7 @@ def procurar_titulo():
 
     while repeticao == "sim":
         palavraChave = input("Digite a palavra-chave para procurar no título do livro: ").strip() .lower()
-        encontrou = True
+        encontrou = False
 
         with open ('catalogoCompleto.csv', mode='r', encoding='utf-8') as arquivo:
             leitor = csv.DictReader(arquivo)
@@ -35,7 +35,7 @@ def procurar_titulo():
                 if palavraChave in tituloFormatado:
                     print(f"| {linha['nome_do_livro']} | {linha['valor']} |")
                     encontrou = True
-    if encontrou == False:
-        print("A palavra-chave não tem semelhança com nenhum título, tente novamente!")
-    else:
-        repetição = "não"
+        if encontrou == False:
+            print("A palavra-chave não tem semelhança com nenhum título, tente novamente!")
+        else:
+            repeticao = "não"
