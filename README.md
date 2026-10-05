@@ -29,8 +29,11 @@ Depois, execute o arquivo principal:
 ## Menu
 
 1 - Filtrar por preço
+
 2 - Procurar titulos
+
 3 - Exportar Catálogo
+
 4 - Encerrar
 
 
