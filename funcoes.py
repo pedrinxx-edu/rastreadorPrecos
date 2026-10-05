@@ -77,15 +77,15 @@ def exportar_catalogo_excel():
 
             linha_excel += 1
 
-    planilha.save("catalogo_formatadado.xlsx")
-    print("Arquivo Excel gerado com sucesso! O arquivo foi salvo como 'catalogo_formatadado.xlsx'")
+    planilha.save("catalogo_formatado.xlsx")
+    print("Arquivo Excel gerado com sucesso! O arquivo foi salvo como 'catalogo_formatado.xlsx'")
 
 def exportar_catalogo_word():
     print("\nGerando seu arquivo Word, aguarde...")
 
     documento = Document()
 
-    documento.add.heading("Catálogo de livros - Books to Scraoe", level=1)
+    documento.add_heading("Catálogo de livros - Books to Scraoe", level=1)
     documento.add_paragraph("Abaixo está a lista completa de livros extraídos: \n")
 
     with open('catalogoCompleto.csv', mode='r', encoding='utf-8') as arquivo:
@@ -95,11 +95,11 @@ def exportar_catalogo_word():
             nome_limpo = linha['nome_do_livro'].strip()
             preco = linha['valor']
 
-            paragrafo = documento.add.paragraph()
+            paragrafo = documento.add_paragraph()
 
-            texto_nome = paragrafo.add.run(f"Livro: {nome_limpo}")
+            texto_nome = paragrafo.add_run(f"Livro: {nome_limpo}")
             texto_nome.bold = True
 
-            paragrafo.add.run(f"\nPreço: {preco}\n")
+            paragrafo.add_run(f"\nPreço: {preco}\n")
     documento.save("Catalogo_de_livros.docx")
     print("\nArquivo Word gerado com sucesso! O arquivo foi salvo como 'Catalogo_de_livros.docx'")
