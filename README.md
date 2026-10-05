@@ -18,12 +18,12 @@ Você precisa do Python 3 instalado. Além disso, é necessário instalar duas b
 
 Instale as dependências com:
 
-pip install openpyxl python-docx
+- **pip install openpyxl python-docx**
 
 
 Depois, execute o arquivo principal:
 
-python main.py
+- **python main.py**
 
 
 ## Menu
