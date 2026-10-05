@@ -17,3 +17,49 @@ O menu aceita o número da opção ou o nome dela (por exemplo, `1` ou `preço`)
 Você precisa do Python 3 instalado. Além disso, é necessário instalar duas bibliotecas externas para a geração dos arquivos de exportação.
 
 Instale as dependências com:
+
+pip install openpyxl python-docx
+
+
+Depois, execute o arquivo principal:
+
+python main.py
+
+
+## Menu
+
+1 - Filtrar por preço
+2 - Procurar titulos
+3 - Exportar Catálogo
+4 - Encerrar
+
+
+## Arquivos exportados
+
+Os arquivos são salvos na mesma pasta do programa quando a opção 3 é escolhida. O sistema interage com o usuário para saber qual formato ele prefere.
+
+Se escolher Excel, ele gera o `catalogo_formatado.xlsx`, que já vem com as colunas alargadas e o cabeçalho estilizado (letra branca e fundo azul).
+
+Se escolher Word, ele gera o `Catalogo_de_livros.docx`, estruturado com um título principal e a lista de livros formatada em parágrafos, colocando o nome da obra em negrito.
+
+## Limitações
+
+O programa não acessa a internet em tempo real. Ele depende obrigatoriamente do arquivo estático `catalogoCompleto.csv` (gerado previamente via Scrapy) estar na mesma pasta para conseguir ler os dados. 
+
+## O que pratiquei neste projeto
+
+- Arquitetura modular (separando a interface no `main.py` e a lógica no `funcoes.py`)
+
+- Leitura de arquivos com o gerenciador de contexto `with open` e `csv.DictReader`
+
+- Manipulação de strings e conversão de tipos (`strip`, `lower`, `replace`, `float`)
+
+- Laços `while` e `for`
+
+- Controle de fluxo com variáveis de estado (flags)
+
+- Exportação de planilhas formatadas com `openpyxl`
+
+- Exportação de documentos formatados com `python-docx`
+
+- Sugestão de opção parecida com `difflib.get_close_matches`
